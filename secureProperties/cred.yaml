@@ -1,0 +1,5 @@
+db:
+    URL: "jdbc:postgresql://queenie.db.elephantsql.com:5432/skvoosrx"
+    Driver: "org.postgresql.Driver"
+    User: "skvoosrx"
+    Password: "UH3okjhIdd7EUfskvbrMBuL1qoQ_nnxL"

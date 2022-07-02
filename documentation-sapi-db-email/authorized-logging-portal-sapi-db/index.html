@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>authorized-logging-portal-sapi · Anypoint Studio Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/bootstrap.css" rel="stylesheet">
+    <link href="assets/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/docs.css" rel="stylesheet">
+    <link href="assets/prettify.css" rel="stylesheet">
+    <link href="assets/scroller.css" rel="stylesheet">
+
+  </head>
+
+  <body data-twttr-rendered="true" data-spy="scroll" data-target=".bs-docs-sidebar"><iframe style="display: none;" id="rufous-sandbox" name="uid13460061790411"></iframe>
+
+    <!-- Navbar
+    ================================================== -->
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <p class="navbar-text pull-right">
+              <a href="https://www.mulesoft.com" class="navbar-link">
+                <img src="./assets/images/mulesoft-logo-final.png" alt="MuleSoft" id="mulesoftlogo">
+              </a>
+          </p>
+          <div class="scroller scroller-left"><img src="./assets/icons/glyphicons_chevron-left.png" alt="scrollLeft"></div>
+          <div class="scroller scroller-right"><img src="./assets/icons/glyphicons_chevron-right.png" alt="scrollRight"></div>
+          <div class="wrapper">
+            <ul class="nav nav-tabs list" id="myTab">
+                    <li class="active"><a href="./index.html">db-operation-flow</a></li>
+                      <li><a href="./Authorized-Logging-Portal-SAPI---DB-test-suite.html">Authorized-Logging-Portal-SAPI---DB-test-suite</a></li>
+                      <li><a href="./global-error-handler.html">global-error-handler</a></li>
+                      <li><a href="./global-config.html">global-config</a></li>
+                      <li><a href="./db-operation-flow-suite.html">db-operation-flow-suite</a></li>
+                      <li><a href="./Authorized-Logging-Portal-SAPI---DB-suite.html">Authorized-Logging-Portal-SAPI---DB-suite</a></li>
+                      <li><a href="./Authorized-Logging-Portal-SAPI---DB.html">Authorized-Logging-Portal-SAPI---DB</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+  <header class="jumbotron subhead" id="overview">
+    <div class="container">
+      <h1>authorized-logging-portal-sapi</h1>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav affix">
+          <li class="nav-header">Flows</li>
+            <li data-toggle="collapse" data-target="#_updateFlowNav"><a href="#_updateFlow"><i class="icon-chevron-right"></i> updateFlow</a>
+            </li>
+            <div id="_updateFlowNav" class="accordion-body collapse" style="height: 0px;">
+              <div class="accordion-inner">
+                <ul>
+                </ul>
+              </div>
+            </div>
+            <li data-toggle="collapse" data-target="#_selectFlowNav"><a href="#_selectFlow"><i class="icon-chevron-right"></i> selectFlow</a>
+            </li>
+            <div id="_selectFlowNav" class="accordion-body collapse" style="height: 0px;">
+              <div class="accordion-inner">
+                <ul>
+                </ul>
+              </div>
+            </div>
+            <li data-toggle="collapse" data-target="#_insertFlowNav"><a href="#_insertFlow"><i class="icon-chevron-right"></i> insertFlow</a>
+            </li>
+            <div id="_insertFlowNav" class="accordion-body collapse" style="height: 0px;">
+              <div class="accordion-inner">
+                <ul>
+                </ul>
+              </div>
+            </div>
+        </ul>
+      </div>
+      <div class="span9">
+
+        <!-- Elements and their descriptions
+        ================================================== -->
+        <div style="max-height: 640px;width:100%;overflow:auto;">
+            <img src="img/db_operation_flow.png" usemap="#mFlowMap" alt="Mule Configuration Image">
+            <map name="mFlowMap">
+          </map>
+        </div>
+        <!--Mule configuration xml code-->
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" href="#collapseMuleConfiguration">
+            Show Mule Configuration XML code...
+          </a>
+        </div>
+        <div id="collapseMuleConfiguration" class="accordion-body collapse" style="height: 0px;">
+          <div class="accordion-inner">
+              <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd"&gt;
+    &lt;sub-flow name="updateFlow" doc:id="34c1f3c8-a2c3-4324-8b6a-6097c8c26088"&gt; 
+        &lt;db:update doc:name="Update" doc:id="acab311d-1944-4390-a746-81d703943c18" config-ref="db_configg"&gt; 
+            &lt;db:sql&gt;&lt;![CDATA[#[payload.query]]]&gt;    &lt;/db:sql&gt;  
+            &lt;db:input-parameters&gt;&lt;![CDATA[#[payload.inputParam default {}]]]&gt;   &lt;/db:input-parameters&gt; 
+        &lt;/db:update&gt;  
+        &lt;ee:transform doc:name="Transform Message" doc:id="d6e37a64-32fd-4d2c-9210-20741bc1e931"&gt; 
+            &lt;ee:message&gt; 
+                &lt;ee:set-payload&gt;&lt;![CDATA[%dw 2.0
+
+output application/java
+
+---
+
+payload]]&gt;  &lt;/ee:set-payload&gt;
+            &lt;/ee:message&gt; 
+        &lt;/ee:transform&gt;  
+        &lt;logger level="INFO" doc:name="Logger" doc:id="83df4ab3-50d5-44b5-920a-66e3eaf8431c" message="data updated in db"/&gt; 
+    &lt;/sub-flow&gt;  
+    &lt;sub-flow name="selectFlow" doc:id="d34e1fc4-89d6-4eb4-926b-0148aefcedf0"&gt;
+        &lt;db:select doc:name="Select" doc:id="bbd75328-4ebd-4879-87bb-e08b137a90a3" config-ref="db_configg"&gt; 
+            &lt;db:sql&gt;&lt;![CDATA[#[payload.query]]]&gt;    &lt;/db:sql&gt;  
+            &lt;db:input-parameters&gt;&lt;![CDATA[#[payload.inputParam default {}]]]&gt;   &lt;/db:input-parameters&gt; 
+        &lt;/db:select&gt;  
+        &lt;ee:transform doc:name="Transform Message" doc:id="c2684eb4-ea98-476a-9e90-00d3481cb05a"&gt; 
+            &lt;ee:message&gt; 
+                &lt;ee:set-payload&gt;&lt;![CDATA[%dw 2.0
+
+output application/json
+
+---
+
+payload]]&gt;  &lt;/ee:set-payload&gt;
+            &lt;/ee:message&gt; 
+        &lt;/ee:transform&gt;  
+        &lt;logger level="INFO" doc:name="Logger" doc:id="16572a50-10c2-4202-ad62-0adfa38361e8" message="data selected from db"/&gt; 
+    &lt;/sub-flow&gt;  
+    &lt;sub-flow name="insertFlow" doc:id="47534a07-5c31-4c0d-acb3-9630c64b478a"&gt; 
+        &lt;db:insert doc:name="Insert" doc:id="07c2366a-2c0a-4423-90bb-ae1de22ae597" config-ref="db_configg"&gt; 
+            &lt;db:sql&gt;&lt;![CDATA[#[payload.query]]]&gt;    &lt;/db:sql&gt;  
+            &lt;db:input-parameters&gt;&lt;![CDATA[#[payload.inputParam default {}]]]&gt;   &lt;/db:input-parameters&gt; 
+        &lt;/db:insert&gt;  
+        &lt;ee:transform doc:name="Transform Message" doc:id="5bf345c0-7f2a-450c-aa1b-6b17a64ca562"&gt; 
+            &lt;ee:message&gt; 
+                &lt;ee:set-payload&gt;&lt;![CDATA[%dw 2.0
+
+output application/java
+
+---
+
+payload]]&gt;  &lt;/ee:set-payload&gt;
+            &lt;/ee:message&gt; 
+        &lt;/ee:transform&gt;  
+        &lt;logger level="INFO" doc:name="Logger" doc:id="d11fda59-d146-420a-aa8d-8f1d0802bbae" message="data inserted into db"/&gt; 
+    &lt;/sub-flow&gt; 
+&lt;/mule&gt;
+</code></pre>
+
+          </div>
+        </div>
+
+          <section id="_updateFlow">
+            <div class="page-header">
+                <h1>updateFlow <img src="./assets/icons/flow.png"></h1>
+            </div>
+            <div class="documentation-indented" style="height:100%;width:100%;overflow:auto;">
+                <img src="img/updateFlow.png" usemap="#flowMapupdateFlow" alt="updateFlow image">
+                <map name="flowMapupdateFlow">
+                </map>
+            </div>
+            <div class="documentation-indented">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" href="#_updateFlowxml_code">
+                  Show configuration XML code of the flow updateFlow...
+                </a>
+              </div>
+              <div id="_updateFlowxml_code" class="accordion-body collapse" style="height: 0px;">
+                <div class="accordion-inner">
+                    <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;sub-flow name="updateFlow" doc:id="34c1f3c8-a2c3-4324-8b6a-6097c8c26088"&gt;  
+    &lt;db:update doc:name="Update" doc:id="acab311d-1944-4390-a746-81d703943c18" config-ref="db_configg"&gt;  
+        &lt;db:sql&gt;&lt;![CDATA[#[payload.query]]]&gt;    &lt;/db:sql&gt;  
+        &lt;db:input-parameters&gt;&lt;![CDATA[#[payload.inputParam default {}]]]&gt;   &lt;/db:input-parameters&gt; 
+    &lt;/db:update&gt;  
+    &lt;ee:transform doc:name="Transform Message" doc:id="d6e37a64-32fd-4d2c-9210-20741bc1e931"&gt;  
+        &lt;ee:message&gt; 
+            &lt;ee:set-payload&gt;&lt;![CDATA[%dw 2.0
+
+output application/java
+
+---
+
+payload]]&gt;  &lt;/ee:set-payload&gt;
+        &lt;/ee:message&gt; 
+    &lt;/ee:transform&gt;  
+    &lt;logger level="INFO" doc:name="Logger" doc:id="83df4ab3-50d5-44b5-920a-66e3eaf8431c" message="data updated in db"/&gt; 
+&lt;/sub-flow&gt;
+</code></pre>
+
+                </div>
+              </div>
+              <p></p>
+            </div>
+          </section>
+          <section id="_selectFlow">
+            <div class="page-header">
+                <h1>selectFlow <img src="./assets/icons/flow.png"></h1>
+            </div>
+            <div class="documentation-indented" style="height:100%;width:100%;overflow:auto;">
+                <img src="img/selectFlow.png" usemap="#flowMapselectFlow" alt="selectFlow image">
+                <map name="flowMapselectFlow">
+                </map>
+            </div>
+            <div class="documentation-indented">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" href="#_selectFlowxml_code">
+                  Show configuration XML code of the flow selectFlow...
+                </a>
+              </div>
+              <div id="_selectFlowxml_code" class="accordion-body collapse" style="height: 0px;">
+                <div class="accordion-inner">
+                    <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;sub-flow name="selectFlow" doc:id="d34e1fc4-89d6-4eb4-926b-0148aefcedf0"&gt;
+    &lt;db:select doc:name="Select" doc:id="bbd75328-4ebd-4879-87bb-e08b137a90a3" config-ref="db_configg"&gt;  
+        &lt;db:sql&gt;&lt;![CDATA[#[payload.query]]]&gt;    &lt;/db:sql&gt;  
+        &lt;db:input-parameters&gt;&lt;![CDATA[#[payload.inputParam default {}]]]&gt;   &lt;/db:input-parameters&gt; 
+    &lt;/db:select&gt;  
+    &lt;ee:transform doc:name="Transform Message" doc:id="c2684eb4-ea98-476a-9e90-00d3481cb05a"&gt;  
+        &lt;ee:message&gt; 
+            &lt;ee:set-payload&gt;&lt;![CDATA[%dw 2.0
+
+output application/json
+
+---
+
+payload]]&gt;  &lt;/ee:set-payload&gt;
+        &lt;/ee:message&gt; 
+    &lt;/ee:transform&gt;  
+    &lt;logger level="INFO" doc:name="Logger" doc:id="16572a50-10c2-4202-ad62-0adfa38361e8" message="data selected from db"/&gt; 
+&lt;/sub-flow&gt;
+</code></pre>
+
+                </div>
+              </div>
+              <p></p>
+            </div>
+          </section>
+          <section id="_insertFlow">
+            <div class="page-header">
+                <h1>insertFlow <img src="./assets/icons/flow.png"></h1>
+            </div>
+            <div class="documentation-indented" style="height:100%;width:100%;overflow:auto;">
+                <img src="img/insertFlow.png" usemap="#flowMapinsertFlow" alt="insertFlow image">
+                <map name="flowMapinsertFlow">
+                </map>
+            </div>
+            <div class="documentation-indented">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" href="#_insertFlowxml_code">
+                  Show configuration XML code of the flow insertFlow...
+                </a>
+              </div>
+              <div id="_insertFlowxml_code" class="accordion-body collapse" style="height: 0px;">
+                <div class="accordion-inner">
+                    <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;sub-flow name="insertFlow" doc:id="47534a07-5c31-4c0d-acb3-9630c64b478a"&gt;  
+    &lt;db:insert doc:name="Insert" doc:id="07c2366a-2c0a-4423-90bb-ae1de22ae597" config-ref="db_configg"&gt;  
+        &lt;db:sql&gt;&lt;![CDATA[#[payload.query]]]&gt;    &lt;/db:sql&gt;  
+        &lt;db:input-parameters&gt;&lt;![CDATA[#[payload.inputParam default {}]]]&gt;   &lt;/db:input-parameters&gt; 
+    &lt;/db:insert&gt;  
+    &lt;ee:transform doc:name="Transform Message" doc:id="5bf345c0-7f2a-450c-aa1b-6b17a64ca562"&gt;  
+        &lt;ee:message&gt; 
+            &lt;ee:set-payload&gt;&lt;![CDATA[%dw 2.0
+
+output application/java
+
+---
+
+payload]]&gt;  &lt;/ee:set-payload&gt;
+        &lt;/ee:message&gt; 
+    &lt;/ee:transform&gt;  
+    &lt;logger level="INFO" doc:name="Logger" doc:id="d11fda59-d146-420a-aa8d-8f1d0802bbae" message="data inserted into db"/&gt; 
+&lt;/sub-flow&gt;
+</code></pre>
+
+                </div>
+              </div>
+              <p></p>
+            </div>
+          </section>
+      </div>
+    </div>
+  </div>
+
+<!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Designed and built with <a href="https://www.mulesoft.com/platform/studio" target="_blank">Anypoint Studio</a>.</p>
+        <p>Code licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p>Icons from <a href="https://glyphicons.com/">Glyphicons Free</a>, licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <ul class="footer-links">
+          <li><a href="https://blogs.mulesoft.com/bloghome/">Read the blog</a></li>
+          <li><a href="https://www.mulesoft.org/jira/issues/">Submit issues</a></li>
+        </ul>
+      </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/widgets.js"></script>
+    <script src="assets/jquery.js"></script>
+    <script src="assets/prettify.js"></script>
+    <script src="assets/bootstrap-transition.js"></script>
+    <script src="assets/bootstrap-alert.js"></script>
+    <script src="assets/bootstrap-modal.js"></script>
+    <script src="assets/bootstrap-dropdown.js"></script>
+    <script src="assets/bootstrap-scrollspy.js"></script>
+    <script src="assets/bootstrap-tab.js"></script>
+    <script src="assets/bootstrap-tooltip.js"></script>
+    <script src="assets/bootstrap-popover.js"></script>
+    <script src="assets/bootstrap-button.js"></script>
+    <script src="assets/bootstrap-collapse.js"></script>
+    <script src="assets/bootstrap-carousel.js"></script>
+    <script src="assets/bootstrap-typeahead.js"></script>
+    <script src="assets/bootstrap-affix.js"></script>
+    <script src="assets/scroller.js"></script>
+    <script src="assets/application.js"></script>
+
+</body>
+</html>
